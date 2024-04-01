@@ -1,13 +1,22 @@
 import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 
 public class ColorPanel {
     private JPanel panel;
     private ColorButton[] colorButtons; // Array to hold ColorButton instances
+    private JLabel colorInfoLabel;
+    private Rgb rgb;
 
     public ColorPanel(Rgb rgb) {
+        this.rgb = rgb;
         panel = new JPanel(new BorderLayout()); // Use BorderLayout
+        colorInfoLabel = new JLabel();
+        colorInfoLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        colorInfoLabel.setForeground(Color.BLACK);
         panel.setBackground(Color.BLACK);
         //TODO Improve panel and other stuff
         // Create ColorButtons and add them to the panel
@@ -17,6 +26,7 @@ public class ColorPanel {
             new ColorButton(this, Color.BLUE, "blue", rgb)
         };
 
+        panel.add(colorInfoLabel, BorderLayout.NORTH);
         // Create a panel to hold the buttons at the bottom
         JPanel buttonPanel = new JPanel();
         for (ColorButton button : colorButtons) {
@@ -36,5 +46,9 @@ public class ColorPanel {
     // Method to change the color of the panel
     public void changeColor(Color color) {
         panel.setBackground(color);
+        colorInfoLabel.setText("RGB: " + rgb.getRgb("red") + ", " + rgb.getRgb("green") + ", " + rgb.getRgb("blue") 
+        + " HexValue: " + String.format("#%06X", (0xFFFFFF & color.getRGB())));
     }
+
+    
 }
