@@ -20,6 +20,7 @@ public class ColorButton {
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                //REmove system outs TODO
                 System.out.println("Button clicked, rgbValue: " + rgb.getRgb(name));
                 if(rgbValue + 5 > 255){
                     //Turn it to messeage pop TODO

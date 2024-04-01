@@ -9,7 +9,7 @@ public class ColorPanel {
     public ColorPanel(Rgb rgb) {
         panel = new JPanel(new BorderLayout()); // Use BorderLayout
         panel.setBackground(Color.BLACK);
-
+        //TODO Improve panel and other stuff
         // Create ColorButtons and add them to the panel
         colorButtons = new ColorButton[]{
             new ColorButton(this, Color.RED, "red", rgb),
