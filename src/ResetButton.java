@@ -9,15 +9,15 @@ public class ResetButton {
     private JButton button;
 
     public ResetButton(Rgb rgb, ColorPanel panel){
-        button = new JButton();
-        button.setPreferredSize(new Dimension(40, 40));
+        button = new JButton("Reset");
+        button.setPreferredSize(new Dimension(100, 60));
         button.setBackground(Color.YELLOW);
         button.setForeground(Color.BLACK);
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 rgb.reset();
-                panel.changeColor(Color.WHITE);
+                panel.changeColor(Color.BLACK);
             }
         });
     }

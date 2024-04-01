@@ -14,7 +14,7 @@ public class ColorButton {
         this.rgbValue = 0; 
 
         button = new JButton(name);
-        button.setPreferredSize(new Dimension(40, 40));
+        button.setPreferredSize(new Dimension(100, 60));
         button.setBackground(color);
         button.setForeground(Color.BLACK);
 
