@@ -9,18 +9,20 @@ import javax.swing.WindowConstants;
 public class ColorMixer{
     private static JFrame frame;
     private static JPanel panel;
+    private static Rgb rgb;
 
 
 
     public static void main(String[] args) {
         //Make Frame
         frame = new JFrame("ColorMixer");
+        rgb = new Rgb(0, 0, 0);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        panel = new ColorPanel().getPanel();
+        panel = new ColorPanel(rgb).getPanel();
 
         //Make panel
-        frame.getContentPane().add(panel, BorderLayout.SOUTH);        
+        frame.getContentPane().add(panel, BorderLayout.CENTER);        
 
 
 
