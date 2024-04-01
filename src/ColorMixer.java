@@ -1,31 +1,37 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
-public class ColorMixer {
+public class ColorMixer{
     private static JFrame frame;
-    private static JPanel colorPanel;
-    private static CirclePanel circlePanel;
+    private static JPanel panel;
+
+
+
     public static void main(String[] args) {
-        // Create components
-        frame = new JFrame("Color Mixer");
-        colorPanel = new JPanel();
-        circlePanel = new CirclePanel(10);
+        //Make Frame
+        frame = new JFrame("ColorMixer");
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        panel = new ColorPanel().getPanel();
 
-        //Set frame operation
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //Make panel
+        frame.getContentPane().add(panel, BorderLayout.SOUTH);        
 
-        CirclePanel circlePanel = new CirclePanel(100); // Setting padding between groups
-        circlePanel.setBackground(Color.WHITE); // Setting background color of the panel
 
-        // Adding CircleGroup instances to the panel
-        circlePanel.addCircleGroup(new CircleGroup(80, Color.RED, 40, Color.RED));
-        circlePanel.addCircleGroup(new CircleGroup(80, Color.GREEN, 40, Color.GREEN));
-        circlePanel.addCircleGroup(new CircleGroup(80, Color.ORANGE, 40, Color.ORANGE));
 
-        frame.add(circlePanel);
+
+        //Customize
+        frame.setPreferredSize(new Dimension(1000, 1000)); 
+        frame.getContentPane().setBackground(Color.BLACK);
+        frame.setResizable(true);
+        frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.pack();
-        frame.setVisible(true);
+        frame.setVisible(true);  
     }
+    
 }
